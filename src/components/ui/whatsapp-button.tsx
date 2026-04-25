@@ -4,6 +4,7 @@ interface WhatsAppButtonProps {
   className?: string;
   size?: "default" | "large";
   showIcon?: boolean;
+  label?: string;
 }
 
 const WHATSAPP_NUMBER = "94XXXXXXXXXX"; // Replace with actual number
@@ -19,6 +20,7 @@ export function WhatsAppButton({
   className = "",
   size = "default",
   showIcon = true,
+  label = "Send a WhatsApp Message",
 }: WhatsAppButtonProps) {
   const sizeClasses =
     size === "large"
@@ -33,7 +35,7 @@ export function WhatsAppButton({
       className={`whatsapp-btn ${sizeClasses} ${className}`}
     >
       {showIcon && <MessageCircle className="w-5 h-5" />}
-      Send a WhatsApp Message
+      {label}
     </a>
   );
 }

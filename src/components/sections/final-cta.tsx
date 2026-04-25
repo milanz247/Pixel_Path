@@ -1,37 +1,74 @@
 import { WhatsAppButton } from "@/components/ui/whatsapp-button";
+import { MessageSquare, Search, BarChart3, FileText } from "lucide-react";
+
+const benefits = [
+  { icon: Search, text: "Your current social presence analysis" },
+  { icon: BarChart3, text: "What inquiries you're missing" },
+  { icon: FileText, text: "Custom growth plan (no obligation)" },
+];
 
 export function FinalCTASection() {
   return (
-    <section className="relative overflow-hidden bg-navy py-12 md:py-20" id="final-cta">
-      {/* Background pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, #D4A853 1px, transparent 0)", backgroundSize: "48px 48px" }} />
-      </div>
-      {/* Gold accent glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 md:w-96 h-64 md:h-96 bg-gold/5 rounded-full blur-3xl" />
+    <section className="relative overflow-hidden" id="final-cta">
+      <div
+        className="relative py-16 md:py-28"
+        style={{
+          background:
+            "linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #0F172A 100%)",
+        }}
+      >
+        {/* Subtle pattern overlay */}
+        <div className="absolute inset-0 opacity-[0.04]">
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage:
+                "radial-gradient(circle at 1px 1px, #FFFFFF 1px, transparent 0)",
+              backgroundSize: "32px 32px",
+            }}
+          />
+        </div>
 
-      <div className="relative mx-auto max-w-3xl px-5 md:px-8 text-center">
-        <div>
-          <div className="w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl gold-gradient flex items-center justify-center mx-auto mb-5 md:mb-8 shadow-lg shadow-gold/20">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="md:w-7 md:h-7">
-              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-            </svg>
+        <div className="relative mx-auto max-w-3xl px-5 md:px-8 text-center">
+          <div>
+            {/* Icon */}
+            <div className="w-14 h-14 md:w-16 md:h-16 mx-auto rounded-2xl gold-gradient flex items-center justify-center mb-6 md:mb-8 shadow-xl shadow-gold/20">
+              <MessageSquare className="w-7 h-7 md:w-8 md:h-8 text-white" />
+            </div>
+
+            <h2
+              className="text-2xl md:text-4xl lg:text-5xl font-bold text-white mb-4 md:mb-6 leading-tight"
+              style={{ fontFamily: "var(--font-outfit, 'Outfit', sans-serif)" }}
+            >
+              Ready to Get More{" "}
+              <span className="text-gold-gradient">Patient Inquiries?</span>
+            </h2>
+
+            <p className="text-sm md:text-lg text-slate-300 mb-6 md:mb-8 max-w-xl mx-auto leading-relaxed">
+              Get your Free Clinic Audit — we&apos;ll review your current presence
+              and show you exactly what&apos;s missing and how to fix it.
+            </p>
+
+            {/* Benefits */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 mb-8 md:mb-10">
+              {benefits.map((b, i) => {
+                const Icon = b.icon;
+                return (
+                  <div key={i} className="flex items-center gap-2">
+                    <Icon className="w-4 h-4 text-gold" />
+                    <span className="text-xs md:text-sm text-slate-300">{b.text}</span>
+                  </div>
+                );
+              })}
+            </div>
+
+            <WhatsAppButton size="large" label="Get Your Free Clinic Audit" />
+
+            <p className="text-xs md:text-sm text-slate-400 mt-4 md:mt-6">
+              Fast reply during 9 AM – 6 PM (Mon–Sat). No pressure. No long form.
+              Just direct answers.
+            </p>
           </div>
-
-          <h2 className="heading-lg mb-4 md:mb-6" style={{ color: "white" }}>
-            If You Want More Patient Inquiries, Start with a Simple{" "}
-            <span className="text-gold-light">WhatsApp Chat</span>
-          </h2>
-
-          <p className="text-sm md:text-lg text-white/70 mb-6 md:mb-10 leading-relaxed max-w-2xl mx-auto">
-            Your clinic does not need more random posting. It needs better trust, better visibility, and a better system to turn attention into patient inquiries. If you want that, send us a WhatsApp message.
-          </p>
-
-          <WhatsAppButton size="large" />
-
-          <p className="text-xs md:text-sm text-white/50 mt-4 md:mt-5">
-            Fast reply during working hours. No pressure. No long form.
-          </p>
         </div>
       </div>
     </section>

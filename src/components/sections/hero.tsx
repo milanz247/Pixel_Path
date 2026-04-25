@@ -3,7 +3,7 @@ import { WhatsAppButton } from "@/components/ui/whatsapp-button";
 
 export function HeroSection() {
   return (
-    <section className="relative overflow-hidden bg-white" id="hero">
+    <section className="relative overflow-hidden bg-white pt-16 md:pt-20" id="hero">
       {/* Subtle background pattern */}
       <div className="absolute inset-0 opacity-[0.03]">
         <div
@@ -19,26 +19,9 @@ export function HeroSection() {
       {/* Gold accent line at top */}
       <div className="absolute top-0 left-0 right-0 h-[3px] gold-gradient" />
 
-      <div className="relative mx-auto max-w-6xl px-5 md:px-8 pt-6 pb-12 md:pt-16 md:pb-24">
-        {/* Logo / Brand */}
-        <div className="mb-8 md:mb-16">
-          <a href="#hero" className="inline-flex items-center gap-2.5">
-            <div className="w-8 h-8 md:w-9 md:h-9 rounded-lg gold-gradient flex items-center justify-center">
-              <span className="text-white font-bold text-xs md:text-sm font-[var(--font-outfit)]">
-                PP
-              </span>
-            </div>
-            <span
-              className="text-lg md:text-xl font-semibold text-navy tracking-tight"
-              style={{ fontFamily: "var(--font-outfit, 'Outfit', sans-serif)" }}
-            >
-              Pixel Path
-            </span>
-          </a>
-        </div>
-
+      <div className="relative mx-auto max-w-6xl px-5 md:px-8 pt-6 pb-12 md:pt-12 md:pb-24">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-          {/* Copy — always first on mobile */}
+          {/* Copy */}
           <div>
             {/* Small badge */}
             <div className="inline-flex items-center gap-2 bg-cream rounded-full px-3 md:px-4 py-1.5 mb-4 md:mb-6">
@@ -49,41 +32,39 @@ export function HeroSection() {
             </div>
 
             <h1 className="heading-xl mb-4 md:mb-6">
-              Get More Patient Inquiries{" "}
-              <span className="text-gold-gradient">for Your Clinic</span>
+              We Bring More Patients to Your Clinic —{" "}
+              <span className="text-gold-gradient">Consistently</span>
             </h1>
 
             <p className="body-lg mb-6 md:mb-8 max-w-xl text-sm md:text-lg">
-              We help dental clinics, skin clinics, and aesthetic clinics in Sri
-              Lanka get more patient inquiries through better social media, ads,
-              content, and simple marketing systems that actually work.
+              Your clinic is great — your marketing is the problem. We build a
+              complete system that gets you 25–40% more serious patient inquiries
+              per month using Facebook & Instagram ads, smart content, and Google
+              search campaigns.
             </p>
 
             <div className="mb-3 md:mb-5">
-              <WhatsAppButton size="large" />
+              <WhatsAppButton size="large" label="Get Your Free Clinic Audit" />
             </div>
 
             <p className="text-xs md:text-sm text-warm-gray mb-6 md:mb-8">
               No long form. Just send us a message about your clinic.
             </p>
 
-            {/* Filter line */}
-            <div className="flex items-center gap-2 pt-3 md:pt-4 border-t border-light-border">
-              <svg
-                width="14"
-                height="14"
-                viewBox="0 0 16 16"
-                fill="none"
-                className="text-gold flex-shrink-0"
-              >
-                <path
-                  d="M8 1L10.163 5.279L15 6.056L11.5 9.274L12.326 14L8 11.779L3.674 14L4.5 9.274L1 6.056L5.837 5.279L8 1Z"
-                  fill="currentColor"
-                />
-              </svg>
-              <span className="text-xs md:text-sm font-medium text-navy-600">
-                Best for clinic owners who want real growth, not cheap posting.
-              </span>
+            {/* Trust signals */}
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-6 pt-3 md:pt-4 border-t border-light-border">
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full bg-emerald-400" />
+                <span className="text-xs md:text-sm font-medium text-navy-600">No lock-in contracts</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full bg-emerald-400" />
+                <span className="text-xs md:text-sm font-medium text-navy-600">Results in 30 days</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full bg-emerald-400" />
+                <span className="text-xs md:text-sm font-medium text-navy-600">Clinic-only focus</span>
+              </div>
             </div>
           </div>
 
@@ -101,37 +82,7 @@ export function HeroSection() {
               <div className="absolute inset-0 bg-gradient-to-t from-navy/10 to-transparent" />
             </div>
 
-            {/* Floating stats card */}
-            <div className="absolute -bottom-3 -left-2 md:-bottom-6 md:-left-6 bg-white rounded-xl p-3 md:p-4 shadow-lg md:shadow-xl shadow-navy/8 border border-light-border">
-              <div className="flex items-center gap-2 md:gap-3">
-                <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-sage flex items-center justify-center">
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="#16a34a"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="md:w-5 md:h-5"
-                  >
-                    <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
-                  </svg>
-                </div>
-                <div>
-                  <p className="text-[10px] md:text-xs text-warm-gray">Patient Inquiries</p>
-                  <p
-                    className="text-base md:text-lg font-bold text-navy"
-                    style={{ fontFamily: "var(--font-outfit, 'Outfit', sans-serif)" }}
-                  >
-                    +127%
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Floating trust card — hidden on small mobile */}
+            {/* Floating trust card */}
             <div className="hidden sm:block absolute -top-3 -right-2 md:-top-4 md:-right-4 bg-white rounded-xl p-2.5 md:p-3 shadow-lg md:shadow-xl shadow-navy/8 border border-light-border">
               <div className="flex items-center gap-2">
                 <div className="flex -space-x-2">
@@ -146,7 +97,7 @@ export function HeroSection() {
                   </div>
                 </div>
                 <span className="text-[10px] md:text-xs font-medium text-navy-600">
-                  Trusted by Clinics
+                  Dental · Skin · Aesthetic
                 </span>
               </div>
             </div>

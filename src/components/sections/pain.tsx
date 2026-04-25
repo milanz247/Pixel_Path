@@ -1,53 +1,88 @@
 import { SectionWrapper } from "@/components/ui/section-wrapper";
-import { WhatsAppButton } from "@/components/ui/whatsapp-button";
-import { AlertTriangle, Clock, MessageSquareOff, Eye, TrendingDown } from "lucide-react";
+import { Eye, TrendingDown, MessageSquareOff, Clock, Trophy } from "lucide-react";
 
 const painPoints = [
-  { icon: Eye, title: "Weak Online Presence", description: "Your clinic page looks weak, inactive, or outdated — and people notice that before they ever message you." },
-  { icon: TrendingDown, title: "Posting Without Results", description: "You post sometimes, but still do not get enough patient inquiries. Random content does not build trust." },
-  { icon: MessageSquareOff, title: "Low-Quality Messages", description: "Many messages are just people asking price and disappearing. No serious consultation inquiries." },
-  { icon: Clock, title: "No Time for Marketing", description: "You do not have time to manage content, ads, and follow-up properly. Marketing falls behind." },
-  { icon: AlertTriangle, title: "Quality Not Showing Online", description: "Your clinic may be good, but your online presence does not show that quality to potential patients." },
+  {
+    icon: Eye,
+    problem: "Weak Online Presence",
+    result: "Your page looks dead. Without social proof, new patients don't trust you enough to message.",
+  },
+  {
+    icon: TrendingDown,
+    problem: "Random Posting",
+    result: "Post sometimes, skip sometimes. Your audience ignores you because there's no consistency.",
+  },
+  {
+    icon: MessageSquareOff,
+    problem: "Wrong Inquiries",
+    result: "\"How much?\" messages all day. Zero serious consultation inquiries that actually convert.",
+  },
+  {
+    icon: Clock,
+    problem: "No Time for Marketing",
+    result: "You're busy treating patients. Marketing keeps falling behind and you lose to competitors.",
+  },
+  {
+    icon: Trophy,
+    problem: "Quality Hidden Online",
+    result: "Your clinic might be the best — but your Facebook page doesn't show it. Patients can't tell.",
+  },
 ];
 
 export function PainSection() {
   return (
     <SectionWrapper background="cream" id="pain">
-      <div className="text-center mb-8 md:mb-16">
+      <div className="text-center mb-8 md:mb-14">
         <div className="animate-on-scroll">
           <div className="premium-divider mx-auto mb-4 md:mb-6" />
           <h2 className="heading-lg mb-3 md:mb-5">
-            Is This What Is Happening in{" "}
+            Is This Happening in{" "}
             <span className="text-gold-gradient">Your Clinic</span> Right Now?
           </h2>
-          <p className="body-lg max-w-2xl mx-auto">
-            You may be doing very good work in your clinic. But if your marketing is weak, random, or inconsistent, the right people may never trust you enough to message.
-          </p>
         </div>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-5 mb-8 md:mb-12">
-        {painPoints.map((point, index) => {
-          const Icon = point.icon;
-          return (
-            <div key={index} className={`animate-on-scroll animate-on-scroll-delay-${index + 1} premium-card group`}>
-              <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg md:rounded-xl bg-rose-soft flex items-center justify-center mb-3 md:mb-4 group-hover:scale-110 transition-transform">
-                <Icon className="w-5 h-5 md:w-6 md:h-6 text-red-400" />
+      {/* Problem table/grid */}
+      <div className="animate-on-scroll max-w-4xl mx-auto mb-6 md:mb-10">
+        <div className="space-y-3 md:space-y-4">
+          {painPoints.map((point, index) => {
+            const Icon = point.icon;
+            return (
+              <div
+                key={index}
+                className={`animate-on-scroll animate-on-scroll-delay-${Math.min(index + 1, 5)} bg-white rounded-xl md:rounded-2xl p-4 md:p-5 border border-light-border flex items-start gap-3 md:gap-5 group hover:shadow-md hover:border-red-100 transition-all`}
+              >
+                <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg md:rounded-xl bg-rose-soft flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                  <Icon className="w-5 h-5 md:w-6 md:h-6 text-red-400" />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <h3
+                    className="text-sm md:text-base font-semibold text-navy mb-1"
+                    style={{ fontFamily: "var(--font-outfit, 'Outfit', sans-serif)" }}
+                  >
+                    {point.problem}
+                  </h3>
+                  <p className="text-xs md:text-sm text-warm-gray leading-relaxed">
+                    {point.result}
+                  </p>
+                </div>
               </div>
-              <h3 className="text-base md:text-lg font-semibold text-navy mb-1.5 md:mb-2" style={{ fontFamily: "var(--font-outfit, 'Outfit', sans-serif)" }}>
-                {point.title}
-              </h3>
-              <p className="body-md">{point.description}</p>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
 
-      <div className="animate-on-scroll text-center">
-        <p className="text-base md:text-xl font-semibold text-navy mb-6 md:mb-8" style={{ fontFamily: "var(--font-outfit, 'Outfit', sans-serif)" }}>
-          Too much effort. Too little trust. Too many weak inquiries.
-        </p>
-        <WhatsAppButton />
+      {/* Result summary */}
+      <div className="animate-on-scroll max-w-2xl mx-auto">
+        <div className="bg-navy rounded-xl md:rounded-2xl p-4 md:p-6 text-center">
+          <p
+            className="text-sm md:text-lg font-semibold text-white"
+            style={{ fontFamily: "var(--font-outfit, 'Outfit', sans-serif)" }}
+          >
+            Random posts + Weak presence ={" "}
+            <span className="text-gold-light">fewer inquiries, wrong type of patients</span>
+          </p>
+        </div>
       </div>
     </SectionWrapper>
   );

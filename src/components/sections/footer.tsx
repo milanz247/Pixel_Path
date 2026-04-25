@@ -2,8 +2,8 @@ import { MessageCircle, MapPin, Clock, Mail, Phone, ArrowUpRight } from "lucide-
 import { getWhatsAppLink } from "@/components/ui/whatsapp-button";
 
 const quickLinks = [
-  { label: "Why Pixel Path", href: "#why-pixel-path" },
   { label: "Our Services", href: "#services" },
+  { label: "Packages", href: "#pricing" },
   { label: "How We Work", href: "#how-it-works" },
   { label: "FAQ", href: "#faq" },
 ];
