@@ -19,7 +19,7 @@ const serviceLinks = [
 
 export function Footer() {
   return (
-    <footer className="bg-navy border-t border-white/[0.06]">
+    <footer className="bg-[#0B1120] border-t border-white/[0.06]">
       <div className="mx-auto max-w-6xl px-5 md:px-8 pt-8 md:pt-10 pb-6 md:pb-8">
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mb-6 md:mb-8">
 
@@ -52,7 +52,7 @@ export function Footer() {
             <ul className="space-y-2 md:space-y-3">
               {quickLinks.map((link, i) => (
                 <li key={i}>
-                  <a href={link.href} className="text-xs md:text-sm text-white/50 hover:text-white/90 transition-colors">{link.label}</a>
+                  <a href={link.href} className="footer-link text-xs md:text-sm text-white/50 hover:text-white/90 transition-colors">{link.label}</a>
                 </li>
               ))}
             </ul>
@@ -64,7 +64,7 @@ export function Footer() {
             <ul className="space-y-2 md:space-y-3">
               {serviceLinks.map((service, i) => (
                 <li key={i}>
-                  <a href="#services" className="text-xs md:text-sm text-white/50 hover:text-white/90 transition-colors">{service}</a>
+                  <a href="#services" className="footer-link text-xs md:text-sm text-white/50 hover:text-white/90 transition-colors">{service}</a>
                 </li>
               ))}
             </ul>
@@ -101,8 +101,8 @@ export function Footer() {
               © {new Date().getFullYear()} Pixel Path. All rights reserved.
             </p>
             <div className="flex items-center gap-4 md:gap-6">
-              <a href="#" className="text-[10px] md:text-xs text-white/30 hover:text-white/60 transition-colors">Privacy Policy</a>
-              <a href="#" className="text-[10px] md:text-xs text-white/30 hover:text-white/60 transition-colors">Terms of Service</a>
+              <a href="#" className="footer-link text-[10px] md:text-xs text-white/30 hover:text-white/60 transition-colors">Privacy Policy</a>
+              <a href="#" className="footer-link text-[10px] md:text-xs text-white/30 hover:text-white/60 transition-colors">Terms of Service</a>
             </div>
           </div>
         </div>

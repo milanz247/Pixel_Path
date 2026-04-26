@@ -15,7 +15,7 @@ export default function Home() {
     <main className="flex-1">
       <Navbar />
       <HeroSection />
-      <PainSection />
+      {/* <PainSection /> */}
       <ServicesSection />
       <PricingSection />
       <SocialProofSection />

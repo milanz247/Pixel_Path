@@ -6,14 +6,24 @@ interface SectionWrapperProps {
   children: ReactNode;
   className?: string;
   id?: string;
-  background?: "white" | "cream" | "navy" | "cream-dark";
+  background?: "white" | "offwhite" | "charcoal" | "navy" | "cream"; // Keeping legacy ones just in case temporarily
+  divider?: boolean;
 }
+
+const bgClassMap: Record<string, string> = {
+  white: "bg-white",
+  offwhite: "bg-[#F8F8F6]",
+  charcoal: "bg-[#1C1C1E] text-white",
+  cream: "bg-[#F8F8F6]", // Map legacy cream to offwhite
+  navy: "bg-[#1C1C1E]",  // Map legacy navy to charcoal
+};
 
 export function SectionWrapper({
   children,
   className = "",
   id,
   background = "white",
+  divider = false,
 }: SectionWrapperProps) {
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -40,20 +50,15 @@ export function SectionWrapper({
     return () => observer.disconnect();
   }, []);
 
-  const bgClasses = {
-    white: "bg-white",
-    cream: "bg-cream",
-    navy: "bg-navy text-white",
-    "cream-dark": "bg-cream-dark",
-  };
-
   return (
     <section
       ref={sectionRef}
       id={id}
-      className={`section-premium ${bgClasses[background]} ${className}`}
+      className={`section-premium relative ${bgClassMap[background]} ${className} ${
+        divider ? "border-t border-[#E5E5E0]" : ""
+      }`}
     >
-      <div className="mx-auto max-w-6xl px-5 md:px-8">{children}</div>
+      <div className="mx-auto max-w-[1140px] px-5 sm:px-8">{children}</div>
     </section>
   );
 }

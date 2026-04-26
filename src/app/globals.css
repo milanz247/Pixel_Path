@@ -15,18 +15,15 @@
   --font-heading: 'Outfit', system-ui, sans-serif;
 
   /* Custom brand colors */
-  --color-navy: #0F172A;
-  --color-navy-light: #1E293B;
-  --color-navy-600: #334155;
-  --color-gold: #D4A853;
-  --color-gold-light: #E8C97A;
-  --color-gold-dark: #B8923F;
-  --color-cream: #FEFCF7;
-  --color-cream-dark: #F8F4ED;
-  --color-sage: #E8F0E8;
-  --color-rose-soft: #FEF2F2;
-  --color-warm-gray: #6B7280;
-  --color-light-border: #E5E7EB;
+  --color-primary: #1A7A4A;
+  --color-primary-dark: #145e39;
+  --color-accent: #F5A623;
+  --color-neutral-charcoal: #1C1C1E;
+  --color-bg-offwhite: #F8F8F6;
+  --color-light-green: #E8F5EE;
+  
+  --color-warm-gray: #4B5563;
+  --color-light-border: #E5E5E0;
 
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
@@ -212,10 +209,17 @@
 .premium-card {
   background: white;
   border: 1px solid #F1F1F1;
-  border-radius: 14px;
-  padding: 1.25rem;
+  border-radius: 12px;
+  padding: 1rem;
   transition: all 0.3s ease;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+@media (min-width: 480px) {
+  .premium-card {
+    border-radius: 14px;
+    padding: 1.25rem;
+  }
 }
 
 @media (min-width: 768px) {
@@ -283,11 +287,11 @@
 
 .sticky-whatsapp {
   position: fixed;
-  bottom: 16px;
-  right: 16px;
-  z-index: 50;
-  width: 52px;
-  height: 52px;
+  bottom: 20px;
+  right: 20px;
+  z-index: 40;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   background: #25D366;
   display: flex;
@@ -297,6 +301,13 @@
   transition: all 0.3s ease;
   animation: pulse-glow 3s infinite;
   cursor: pointer;
+}
+
+@media (min-width: 640px) {
+  .sticky-whatsapp {
+    width: 52px;
+    height: 52px;
+  }
 }
 
 @media (min-width: 768px) {
@@ -315,22 +326,8 @@
 
 /* Section spacing */
 .section-premium {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-}
-
-@media (min-width: 640px) {
-  .section-premium {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
-  }
-}
-
-@media (min-width: 768px) {
-  .section-premium {
-    padding-top: 5.5rem;
-    padding-bottom: 5.5rem;
-  }
+  padding-top: 5rem; /* 80px */
+  padding-bottom: 5rem; /* 80px */
 }
 
 /* Heading styles */
@@ -439,4 +436,303 @@
   width: 2px;
   height: calc(100% + 2rem);
   background: linear-gradient(to bottom, #D4A853, #E8C97A, transparent);
+}
+
+/* ========================================
+   MICRO-ANIMATIONS & INTERACTIONS
+   ======================================== */
+
+/* Scroll Progress Bar */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #D4A853, #E8C97A);
+  z-index: 100;
+  transition: width 0.1s linear;
+}
+
+/* Hero staggered entrance */
+.hero-stagger-1 {
+  animation: fade-in-up 0.8s ease-out 0.1s both;
+}
+.hero-stagger-2 {
+  animation: fade-in-up 0.8s ease-out 0.3s both;
+}
+.hero-stagger-3 {
+  animation: fade-in-up 0.8s ease-out 0.5s both;
+}
+.hero-stagger-4 {
+  animation: fade-in-up 0.8s ease-out 0.7s both;
+}
+.hero-stagger-5 {
+  animation: fade-in-up 0.8s ease-out 0.9s both;
+}
+
+/* Floating card animation */
+.float-card {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Image reveal */
+.hero-image-reveal {
+  animation: scale-in 1s ease-out 0.4s both;
+}
+
+/* CTA button pulse animation */
+@keyframes cta-pulse {
+  0% { box-shadow: 0 8px 30px rgba(34, 197, 94, 0.35), 0 2px 8px rgba(34, 197, 94, 0.2); }
+  50% { box-shadow: 0 12px 40px rgba(34, 197, 94, 0.5), 0 4px 12px rgba(34, 197, 94, 0.3); }
+  100% { box-shadow: 0 8px 30px rgba(34, 197, 94, 0.35), 0 2px 8px rgba(34, 197, 94, 0.2); }
+}
+
+/* Gold shimmer effect on buttons */
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.gold-gradient {
+  background: linear-gradient(135deg, #D4A853 0%, #E8C97A 25%, #D4A853 50%, #E8C97A 75%, #D4A853 100%);
+  background-size: 200% auto;
+}
+
+.gold-gradient:hover {
+  animation: shimmer 2s linear infinite;
+}
+
+/* WhatsApp button pulse */
+@keyframes whatsapp-pulse {
+  0% { box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3); }
+  50% { box-shadow: 0 6px 24px rgba(37, 211, 102, 0.5); }
+  100% { box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3); }
+}
+
+.whatsapp-btn:hover {
+  background: #20BD5A;
+  animation: whatsapp-pulse 1.5s ease-in-out infinite;
+  transform: translateY(-2px);
+}
+
+/* Icon wiggle on parent hover */
+.icon-wiggle {
+  transition: transform 0.3s ease;
+}
+.group:hover .icon-wiggle {
+  animation: wiggle 0.5s ease-in-out;
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-8deg); }
+  75% { transform: rotate(8deg); }
+}
+
+/* Card interactive tilt */
+.card-interactive {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.card-interactive:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* Pain card shake on hover */
+@keyframes subtle-shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-2px); }
+  75% { transform: translateX(2px); }
+}
+
+.pain-card:hover .pain-icon {
+  animation: subtle-shake 0.4s ease-in-out;
+}
+
+/* Checkmark bounce */
+@keyframes check-bounce {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+}
+
+.check-animate:hover {
+  animation: check-bounce 0.3s ease;
+}
+
+/* Pricing card shine sweep */
+@keyframes shine-sweep {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+.pricing-card-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.pricing-card-shine::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.08),
+    transparent
+  );
+  transition: none;
+  pointer-events: none;
+}
+
+.pricing-card-shine:hover::after {
+  animation: shine-sweep 0.8s ease-in-out;
+}
+
+/* Testimonial card hover */
+.testimonial-card {
+  transition: all 0.4s ease;
+}
+.testimonial-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.08);
+}
+
+/* Step card hover glow */
+.step-card {
+  transition: all 0.4s ease;
+  position: relative;
+}
+.step-card::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, transparent, rgba(212, 168, 83, 0.15), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+}
+.step-card:hover::before {
+  opacity: 1;
+}
+.step-card:hover {
+  transform: translateY(-3px);
+}
+
+/* FAQ item interactive */
+.faq-item {
+  transition: all 0.3s ease;
+}
+.faq-item:hover {
+  transform: translateX(4px);
+  border-color: rgba(212, 168, 83, 0.3) !important;
+}
+
+/* Risk bullet hover */
+.risk-bullet {
+  transition: all 0.3s ease;
+}
+.risk-bullet:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+}
+
+/* Footer link underline animation */
+.footer-link {
+  position: relative;
+}
+.footer-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.5);
+  transition: width 0.3s ease;
+}
+.footer-link:hover::after {
+  width: 100%;
+}
+
+/* Sticky WhatsApp enhanced pulse */
+@keyframes wa-ring {
+  0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
+  70% { box-shadow: 0 0 0 12px rgba(37, 211, 102, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+.sticky-whatsapp {
+  animation: wa-ring 2.5s ease-out infinite, pulse-glow 3s infinite;
+}
+
+/* Nav link hover underline */
+.nav-link-animate {
+  position: relative;
+}
+.nav-link-animate::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #D4A853, #E8C97A);
+  border-radius: 1px;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+.nav-link-animate:hover::after {
+  width: 100%;
+}
+
+/* Counter number animation */
+@keyframes count-up {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Divider grow animation */
+.premium-divider {
+  width: 0;
+  transition: width 0.8s ease-out;
+}
+.visible .premium-divider,
+.animate-on-scroll.visible .premium-divider {
+  width: 60px;
+}
+
+/* Badge pulse on hero */
+@keyframes badge-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.9; }
+}
+
+/* Smooth section transitions */
+.section-premium {
+  transition: opacity 0.3s ease;
+}
+
+/* Active nav indicator */
+.nav-active {
+  color: #D4A853 !important;
+}
+.nav-active::after {
+  width: 100% !important;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 40s linear infinite;
+}
+.animate-marquee:hover {
+  animation-play-state: paused;
 }

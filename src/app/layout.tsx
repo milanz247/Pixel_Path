@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
+import { ScrollProgress } from "@/components/ui/scroll-progress";
+import { AnimationObserver } from "@/components/ui/animation-observer";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -90,7 +92,8 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${outfit.variable} antialiased`}
+      className="scroll-smooth"
+      suppressHydrationWarning
     >
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
@@ -102,7 +105,9 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-screen flex flex-col bg-white overflow-x-hidden">
+      <body className={`${outfit.variable} ${inter.variable} antialiased bg-cream min-h-screen flex flex-col overflow-x-hidden selection:bg-gold/20 selection:text-navy`}>
+        <ScrollProgress />
+        <AnimationObserver />
         {children}
       </body>
     </html>

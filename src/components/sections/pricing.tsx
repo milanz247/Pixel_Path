@@ -1,246 +1,166 @@
 "use client";
 
 import { SectionWrapper } from "@/components/ui/section-wrapper";
-import { WhatsAppButton } from "@/components/ui/whatsapp-button";
-import { Check, Star, Zap, TrendingUp, Crown, AlertCircle } from "lucide-react";
+import { getWhatsAppLink } from "@/components/ui/whatsapp-button";
+import { Check, Star, ArrowRight, Plus } from "lucide-react";
+import { useState } from "react";
 
 const packages = [
   {
     name: "Starter Growth",
     price: "45,000",
-    icon: Zap,
-    tagline: "Start your digital presence",
-    description:
-      "Perfect for clinics just starting their digital presence and want to build a professional foundation.",
+    description: "Perfect for clinics just starting their digital presence.",
     features: [
-      "8 Reels + 8 Posts / month",
+      "8 Reels + 8 Posts",
       "Professional captions",
       "Basic Meta Ads management",
       "Monthly content planning",
       "Posting support",
-      "Monthly performance summary",
+      "Performance summary",
     ],
-    bestFor: "Clinics just starting their digital presence.",
+    addons: ["Extra photo shoot: +15k", "Custom branding pack: +20k"],
     recommended: false,
-    gradient: "from-emerald-500/10 via-emerald-400/5 to-transparent",
-    accentColor: "text-emerald-500",
-    borderAccent: "hover:border-emerald-300",
-    iconBg: "bg-emerald-50",
-    checkBg: "bg-emerald-50",
-    checkColor: "text-emerald-500",
   },
   {
     name: "Growth Plus",
     price: "55,000",
-    icon: TrendingUp,
-    tagline: "Consistent & professional growth",
-    description:
-      "A balanced package for clinics that want consistent growth with content strategy and active ad support.",
+    description: "A balanced package for clinics that want consistent growth.",
     features: [
-      "10 Reels + 12 Posts / month",
+      "10 Reels + 12 Posts",
       "Content strategy planning",
       "Meta Ads + Story guidance",
       "Community engagement",
       "Monthly optimization",
-      "Posting support",
       "Monthly performance report",
     ],
-    bestFor: "Clinics wanting consistent, reliable growth.",
+    addons: ["Google Ads: +15k", "Website maintenance: +10k"],
     recommended: true,
-    gradient: "from-gold/15 via-gold/5 to-transparent",
-    accentColor: "text-gold",
-    borderAccent: "border-gold/40 hover:border-gold",
-    iconBg: "bg-gold/10",
-    checkBg: "bg-gold/15",
-    checkColor: "text-gold-dark",
   },
   {
-    name: "Premium Brand Growth",
+    name: "Premium Brand",
     price: "65,000",
-    icon: Crown,
-    tagline: "Dominate your market",
-    description:
-      "For clinics that want premium brand positioning, advanced strategy, and the highest-tier content & advertising system.",
+    description: "For clinics that want premium brand positioning & dominance.",
     features: [
-      "12 Reels + 15 Posts / month",
+      "12 Reels + 15 Posts",
       "Advanced content strategy",
       "Priority coordination",
       "Meta Ads + advanced optimization",
-      "Detailed monthly report with improvement ideas",
+      "Detailed report with ideas",
       "Google Ads consultation",
-      "Brand positioning support",
     ],
-    bestFor: "Clinics wanting premium positioning & market dominance.",
+    addons: ["SEO Audit: +Offer", "Video production: Custom"],
     recommended: false,
-    gradient: "from-purple-500/10 via-purple-400/5 to-transparent",
-    accentColor: "text-purple-500",
-    borderAccent: "hover:border-purple-300",
-    iconBg: "bg-purple-50",
-    checkBg: "bg-purple-50",
-    checkColor: "text-purple-500",
   },
 ];
 
 export function PricingSection() {
+  const [openAddons, setOpenAddons] = useState<number | null>(null);
+
+  const toggleAddon = (index: number) => {
+    if (openAddons === index) setOpenAddons(null);
+    else setOpenAddons(index);
+  };
+
   return (
-    <SectionWrapper background="cream" id="pricing">
-      {/* Section header */}
-      <div className="text-center mb-10 md:mb-16">
+    <SectionWrapper background="white" id="pricing" divider>
+      <div className="text-center mb-12 md:mb-16">
         <div className="animate-on-scroll">
-          <div className="premium-divider mx-auto mb-4 md:mb-6" />
-          <h2 className="heading-lg mb-3 md:mb-5">
-            Social Media & Meta Ads{" "}
-            <span className="text-gold-gradient">Packages for Clinics</span>
+          <h2 className="text-[32px] md:text-[36px] font-bold text-[#1C1C1E] mb-4 font-heading leading-tight">
+            Social Media & Meta Ads Packages
           </h2>
-          <p className="body-lg max-w-2xl mx-auto">
+          <p className="text-base text-[#4B5563] max-w-2xl mx-auto">
             Monthly packages designed to help your clinic grow with professional
-            content, smart strategy, and Meta Ads — all managed for you.
+            content, smart strategy, and Meta Ads.
           </p>
         </div>
       </div>
 
-      {/* Pricing cards */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 md:gap-6 mb-8 md:mb-12 items-stretch">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
         {packages.map((pkg, index) => {
-          const Icon = pkg.icon;
+          const isDark = pkg.recommended;
           return (
             <div
               key={index}
-              className={`animate-on-scroll animate-on-scroll-delay-${index + 1} relative group`}
+              className={`animate-on-scroll relative rounded-xl border p-6 lg:p-8 flex flex-col ${
+                isDark
+                  ? "bg-[#1C1C1E] border-[#1C1C1E] text-white shadow-xl scale-100 md:scale-105 z-10"
+                  : "bg-white border-[#E5E5E0] text-[#1C1C1E] shadow-sm transform translate-y-0 md:translate-y-4"
+              }`}
             >
-              {/* Recommended badge */}
-              {pkg.recommended && (
-                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 z-10">
-                  <div className="gold-gradient text-white text-xs font-semibold px-4 py-1.5 rounded-full shadow-lg shadow-gold/25 flex items-center gap-1.5">
-                    <Star className="w-3 h-3 fill-white" />
-                    Recommended
-                  </div>
+              {isDark && (
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                  <span className="bg-[#1A7A4A] text-white text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full flex items-center gap-1 shadow-sm">
+                    <Star className="w-3 h-3 fill-white text-white" />
+                    Most Popular
+                  </span>
                 </div>
               )}
 
-              <div
-                className={`relative h-full bg-white rounded-2xl border ${
-                  pkg.recommended
-                    ? pkg.borderAccent
-                    : `border-light-border ${pkg.borderAccent}`
-                } transition-all duration-500 overflow-hidden ${
-                  pkg.recommended
-                    ? "shadow-xl shadow-gold/8 scale-[1.02] lg:scale-105"
-                    : "shadow-md hover:shadow-xl"
-                } hover:-translate-y-1`}
-              >
-                {/* Top gradient glow */}
-                <div
-                  className={`absolute top-0 left-0 right-0 h-40 bg-gradient-to-b ${pkg.gradient} pointer-events-none`}
-                />
+              <div className="mb-6">
+                <h3 className={`text-[20px] font-bold mb-2 font-heading ${isDark ? "text-white" : "text-[#1C1C1E]"}`}>{pkg.name}</h3>
+                <p className={`text-[14px] leading-relaxed ${isDark ? "text-white/70" : "text-[#4B5563]"}`}>{pkg.description}</p>
+              </div>
 
-                {/* Card content */}
-                <div className="relative p-5 md:p-7">
-                  {/* Icon and name */}
-                  <div className="flex items-center gap-3 mb-4">
-                    <div
-                      className={`w-10 h-10 md:w-12 md:h-12 rounded-xl ${pkg.iconBg} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}
-                    >
-                      <Icon className={`w-5 h-5 md:w-6 md:h-6 ${pkg.accentColor}`} />
-                    </div>
-                    <div>
-                      <h3
-                        className="text-lg md:text-xl font-bold text-navy"
-                        style={{ fontFamily: "var(--font-outfit, 'Outfit', sans-serif)" }}
-                      >
-                        {pkg.name}
-                      </h3>
-                      <p className="text-xs text-warm-gray">{pkg.tagline}</p>
-                    </div>
-                  </div>
-
-                  {/* Price */}
-                  <div className="mb-4 pb-4 border-b border-light-border">
-                    <div className="flex items-baseline gap-1.5">
-                      <span className="text-xs font-medium text-warm-gray">LKR</span>
-                      <span
-                        className={`text-3xl md:text-4xl font-bold ${
-                          pkg.recommended ? "text-gold-gradient" : "text-navy"
-                        }`}
-                        style={{ fontFamily: "var(--font-outfit, 'Outfit', sans-serif)" }}
-                      >
-                        {pkg.price}
-                      </span>
-                      <span className="text-sm text-warm-gray font-medium">/ month</span>
-                    </div>
-                  </div>
-
-                  {/* Description */}
-                  <p className="body-md mb-5 text-xs md:text-sm">{pkg.description}</p>
-
-                  {/* Features */}
-                  <div className="space-y-2.5 mb-6">
-                    {pkg.features.map((feature, fIndex) => (
-                      <div key={fIndex} className="flex items-start gap-2.5">
-                        <div
-                          className={`mt-0.5 w-4 h-4 md:w-5 md:h-5 rounded-full flex items-center justify-center flex-shrink-0 ${pkg.checkBg}`}
-                        >
-                          <Check
-                            className={`w-2.5 h-2.5 md:w-3 md:h-3 ${pkg.checkColor}`}
-                            strokeWidth={3}
-                          />
-                        </div>
-                        <span className="text-xs md:text-sm text-navy-600 leading-relaxed">
-                          {feature}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Best for */}
-                  <div
-                    className={`rounded-xl p-3 md:p-4 mb-5 ${
-                      pkg.recommended
-                        ? "bg-gold/5 border border-gold/10"
-                        : "bg-cream border border-cream-dark"
-                    }`}
-                  >
-                    <p className="text-xs font-semibold text-navy mb-1">Perfect for:</p>
-                    <p className="text-xs md:text-sm text-warm-gray leading-relaxed">
-                      {pkg.bestFor}
-                    </p>
-                  </div>
-
-                  {/* CTA */}
-                  <WhatsAppButton
-                    className={`w-full justify-center whitespace-nowrap ${
-                      pkg.recommended ? "!text-base" : "!text-sm"
-                    }`}
-                    label="Get Your Free Clinic Audit"
-                  />
+              <div className="mb-6 pb-6 border-b border-opacity-20 border-[#E5E5E0]">
+                <div className="flex items-baseline gap-1">
+                  <span className={`text-sm font-semibold ${isDark ? "text-white/60" : "text-[#4B5563]"}`}>LKR</span>
+                  <span className={`text-[36px] font-bold tracking-tight font-heading ${isDark ? "text-white" : "text-[#1C1C1E]"}`}>{pkg.price}</span>
+                  <span className={`text-sm font-medium ${isDark ? "text-white/60" : "text-[#4B5563]"}`}>/month</span>
                 </div>
+              </div>
+
+              <div className="flex-1">
+                <ul className="space-y-4 mb-6">
+                  {pkg.features.map((feature, fIndex) => (
+                    <li key={fIndex} className="flex items-start gap-3">
+                      <Check className={`w-4 h-4 mt-0.5 flex-shrink-0 ${isDark ? "text-[#1A7A4A]" : "text-[#1A7A4A]"}`} />
+                      <span className={`text-[14px] leading-relaxed ${isDark ? "text-white/90" : "text-[#4B5563]"}`}>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Add-ons Collapsible */}
+              <div className="mt-auto pt-4">
+                <button
+                  onClick={() => toggleAddon(index)}
+                  className={`flex items-center gap-2 text-[13px] font-medium transition-colors ${
+                    isDark ? "text-white/60 hover:text-white" : "text-[#4B5563] hover:text-[#1C1C1E]"
+                  }`}
+                >
+                  <Plus className={`w-4 h-4 transition-transform ${openAddons === index ? "rotate-45" : ""}`} />
+                  Add extras
+                </button>
+                {openAddons === index && (
+                  <div className={`mt-3 p-3 rounded-lg text-[13px] ${isDark ? "bg-white/5" : "bg-[#F8F8F6]"}`}>
+                    <ul className="space-y-2">
+                      {pkg.addons.map((addon, aIndex) => (
+                        <li key={aIndex} className={isDark ? "text-white/80" : "text-[#4B5563]"}>• {addon}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
               </div>
             </div>
           );
         })}
       </div>
 
-      {/* Important note */}
-      <div className="animate-on-scroll max-w-2xl mx-auto">
-        <div className="flex items-start gap-3 bg-white rounded-xl p-4 md:p-5 border border-light-border shadow-sm">
-          <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-amber-50 flex items-center justify-center flex-shrink-0">
-            <AlertCircle className="w-4 h-4 md:w-5 md:h-5 text-amber-500" />
-          </div>
-          <div>
-            <p
-              className="text-sm md:text-base font-semibold text-navy mb-1"
-              style={{ fontFamily: "var(--font-outfit, 'Outfit', sans-serif)" }}
-            >
-              Important Note
-            </p>
-            <p className="text-xs md:text-sm text-warm-gray leading-relaxed">
-              Meta Ads management is included in all packages. Ad budget is
-              separate and paid directly by you. We only charge for management &
-              optimization.
-            </p>
-          </div>
-        </div>
+      <div className="animate-on-scroll text-center flex flex-col items-center justify-center pt-6">
+        <a
+          href={getWhatsAppLink()}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex justify-center items-center gap-2 bg-[#1A7A4A] hover:bg-[#145e39] text-white py-3.5 px-8 rounded-lg font-medium transition-colors"
+        >
+          Chat on WhatsApp
+          <ArrowRight className="w-4 h-4" />
+        </a>
+        <p className="text-[13px] text-[#4B5563] mt-3">
+          Meta Ads budget is separate and paid directly to platforms.
+        </p>
       </div>
     </SectionWrapper>
   );
 }
+                
