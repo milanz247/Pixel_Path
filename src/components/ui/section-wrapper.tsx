@@ -12,10 +12,10 @@ interface SectionWrapperProps {
 
 const bgClassMap: Record<string, string> = {
   white: "bg-white",
-  offwhite: "bg-[#F8F8F6]",
-  charcoal: "bg-[#1C1C1E] text-white",
-  cream: "bg-[#F8F8F6]", // Map legacy cream to offwhite
-  navy: "bg-[#1C1C1E]",  // Map legacy navy to charcoal
+  offwhite: "bg-[#FAF8F2]",
+  charcoal: "bg-[#0B1120] text-white",
+  cream: "bg-[#FAF8F2]", // Map legacy cream to offwhite
+  navy: "bg-[#0B1120]",  // Map legacy navy to charcoal
 };
 
 export function SectionWrapper({
@@ -55,7 +55,7 @@ export function SectionWrapper({
       ref={sectionRef}
       id={id}
       className={`section-premium relative ${bgClassMap[background]} ${className} ${
-        divider ? "border-t border-[#E5E5E0]" : ""
+        divider ? "border-t border-[#E2E8F0]" : ""
       }`}
     >
       <div className="mx-auto max-w-[1140px] px-5 sm:px-8">{children}</div>

@@ -5,10 +5,11 @@ import { Menu, X, ArrowUp } from "lucide-react";
 import { getWhatsAppLink } from "@/components/ui/whatsapp-button";
 
 const navLinks = [
-  { label: "Strategy", href: "#services" },
-  { label: "Content", href: "#services" },
-  { label: "Meta Ads", href: "#services" },
-  { label: "WhatsApp Leads", href: "#services" },
+  { label: "Services", href: "#services" },
+  { label: "Pricing", href: "#pricing" },
+  { label: "Results", href: "#social-proof" },
+  { label: "Process", href: "#how-it-works" },
+  { label: "FAQ", href: "#faq" },
 ];
 
 export function Navbar() {
@@ -42,46 +43,62 @@ export function Navbar() {
 
   return (
     <>
+      {/* Desktop & Mobile Navbar */}
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled || mobileOpen
-            ? "bg-white shadow-sm border-b border-[#E5E5E0]"
-            : "bg-transparent"
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+          scrolled ? "py-4 md:py-6" : "py-6 md:py-8"
         }`}
       >
-        <div className="mx-auto max-w-[1140px] px-5 sm:px-8">
-          <div className="flex items-center justify-between h-16 sm:h-20">
+        <div 
+          className={`mx-auto transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+            scrolled ? "max-w-[1024px] px-4 md:px-0" : "max-w-[1140px] px-6 sm:px-8"
+          }`}
+        >
+          <div 
+            className={`flex items-center justify-between transition-all duration-500 overflow-hidden ${
+              scrolled 
+                ? "h-[64px] bg-white/80 backdrop-blur-xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white/40 ring-1 ring-[#1C1C1E]/5 rounded-2xl px-6" 
+                : "h-[64px] bg-transparent rounded-none px-0 border-transparent ring-0 shadow-none"
+            }`}
+          >
             {/* Logo */}
-            <a href="#hero" className="inline-flex items-center gap-2 group">
-              <div className="w-8 h-8 rounded-lg bg-[#1A7A4A] flex items-center justify-center group-hover:scale-105 transition-transform">
-                <span className="text-white font-bold text-sm font-heading">
+            <a href="#hero" className="inline-flex items-center gap-2.5 group">
+              <div className="w-9 h-9 rounded-xl bg-[#1A7A4A] flex items-center justify-center shadow-sm group-hover:shadow-md transition-all duration-300 group-hover:-translate-y-0.5">
+                <span className="text-white font-bold text-[15px] font-heading tracking-wide">
                   PP
                 </span>
               </div>
-              <span className="text-[18px] sm:text-[20px] font-bold text-[#1C1C1E] tracking-tight font-heading">
+              <span className={`text-[20px] font-bold tracking-tight font-heading group-hover:text-[#1A7A4A] transition-colors ${
+                scrolled ? "text-[#1C1C1E]" : "text-white"
+              }`}>
                 Pixel Path
               </span>
             </a>
 
-            {/* Desktop links */}
-            <div className="hidden md:flex items-center gap-6 lg:gap-8">
-              <div className="flex bg-[#F8F8F6] rounded-full p-1 border border-[#E5E5E0]">
+            {/* Desktop Links (Center) */}
+            <div className="hidden md:flex items-center justify-center flex-1 mx-8">
+              <div className={`flex items-center gap-1 transition-all duration-500 ${scrolled ? "bg-black/5 p-1 rounded-full border border-black/5" : ""}`}>
                 {navLinks.map((link) => (
                   <a
                     key={link.label}
                     href={link.href}
-                    className="text-[14px] font-medium text-[#4B5563] hover:text-[#1C1C1E] hover:bg-white rounded-full px-4 py-2 transition-all duration-200"
+                    className={`text-[14px] font-medium transition-all duration-300 rounded-full px-5 py-2 hover:bg-white hover:text-[#1A7A4A] hover:shadow-sm ${
+                      scrolled ? "text-[#4B5563]" : "text-white/80 hover:bg-white/20"
+                    }`}
                   >
                     {link.label}
                   </a>
                 ))}
               </div>
-              
+            </div>
+
+            {/* Desktop CTA (Right) */}
+            <div className="hidden md:flex items-center shrink-0">
               <a
                 href={getWhatsAppLink()}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center text-sm font-semibold text-white bg-[#1A7A4A] hover:bg-[#145e39] px-6 py-2.5 rounded-lg transition-colors"
+                className="inline-flex items-center justify-center text-[14px] font-semibold text-white bg-[#1A7A4A] hover:bg-[#15603A] hover:shadow-lg hover:shadow-[#1A7A4A]/20 hover:-translate-y-0.5 px-6 py-2.5 rounded-xl transition-all duration-300"
               >
                 Get Free Audit
               </a>
@@ -90,58 +107,65 @@ export function Navbar() {
             {/* Mobile hamburger */}
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="md:hidden w-10 h-10 flex items-center justify-center rounded-lg hover:bg-[#F8F8F6] transition-colors relative z-[60]"
+              className={`md:hidden w-10 h-10 flex items-center justify-center rounded-xl transition-colors relative z-[60] ${
+                scrolled || mobileOpen ? "bg-[#F8F8F6] text-[#1C1C1E] hover:bg-[#E5E5E0]" : "bg-white/10 text-white hover:bg-white/20"
+              }`}
               aria-label="Toggle menu"
             >
-              {mobileOpen ? (
-                <X className="w-6 h-6 text-[#1C1C1E]" />
-              ) : (
-                <Menu className="w-6 h-6 text-[#1C1C1E]" />
-              )}
+              {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
         </div>
       </nav>
 
-      {/* Mobile menu */}
-      {mobileOpen && (
-        <div
-          className="md:hidden fixed inset-0 z-[55] bg-white flex flex-col pt-20"
-        >
-          <div className="flex-1 px-6 py-8 flex flex-col gap-2">
+      {/* Mobile Menu Fullscreen Overlay */}
+      <div 
+        className={`md:hidden fixed inset-0 z-[55] bg-white/95 backdrop-blur-lg transform transition-transform duration-500 ${
+          mobileOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+        <div className="flex flex-col h-full pt-[120px] px-8 pb-10">
+          <div className="flex-1 flex flex-col gap-6">
             {navLinks.map((link, i) => (
               <a
                 key={link.label}
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
-                className="block py-4 text-[18px] font-medium text-[#1C1C1E] border-b border-[#E5E5E0]"
-                style={{ animation: `fade-in-up 0.4s ease-out ${i * 0.08}s both` }}
+                className="text-[32px] font-bold text-[#1C1C1E] font-heading tracking-tight hover:text-[#1A7A4A] transition-colors"
+                style={{ 
+                  animation: mobileOpen ? `count-up 0.5s ease-out ${i * 0.1}s both` : 'none',
+                  opacity: 0, 
+                  transform: 'translateY(10px)'
+                }}
               >
                 {link.label}
               </a>
             ))}
-            <div className="pt-8 mt-auto pb-10">
-              <a
-                href={getWhatsAppLink()}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => setMobileOpen(false)}
-                className="flex items-center justify-center w-full text-base font-semibold text-white bg-[#1A7A4A] px-5 py-4 rounded-lg transition-colors"
-              >
-                Get Free Audit
-              </a>
-            </div>
+          </div>
+
+          <div className="mt-auto">
+            <a
+              href={getWhatsAppLink()}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setMobileOpen(false)}
+              className="flex items-center justify-center w-full text-[16px] font-bold text-white bg-[#1A7A4A] px-6 py-5 rounded-2xl shadow-lg shadow-[#1A7A4A]/20 transition-transform active:scale-95"
+            >
+              Get Free Audit
+            </a>
           </div>
         </div>
-      )}
+      </div>
 
-      {/* Back to top button */}
+      {/* Floating Back to top button */}
       <div 
-        className={`fixed bottom-6 right-6 z-40 transition-all duration-300 ${scrolled ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'}`}
+        className={`fixed bottom-8 right-8 z-40 transition-all duration-500 ${
+          scrolled ? 'opacity-100 translate-y-0 shadow-2xl' : 'opacity-0 translate-y-12 pointer-events-none'
+        }`}
       >
         <button
           onClick={scrollToTop}
-          className="w-12 h-12 rounded-full bg-white text-[#1C1C1E] border border-[#E5E5E0] shadow-sm flex items-center justify-center hover:bg-[#F8F8F6] transition-colors focus:outline-none"
+          className="w-12 h-12 rounded-full bg-white text-[#1C1C1E] border border-[#E5E5E0] flex items-center justify-center shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:scale-110 hover:border-[#1A7A4A] hover:text-[#1A7A4A] transition-all duration-300 focus:outline-none"
           aria-label="Back to top"
         >
           <ArrowUp className="w-5 h-5" />

@@ -37,8 +37,8 @@ export function SocialProofSection() {
   const testimonials = [...baseTestimonials, ...baseTestimonials, ...baseTestimonials];
 
   return (
-    <SectionWrapper background="offwhite" id="social-proof" divider>
-      <div className="text-center mb-10 md:mb-14">
+    <SectionWrapper background="offwhite" id="social-proof" divider={false}>
+      <div className="text-center mb-10 md:mb-14 relative z-10 w-full overflow-hidden">
         <div className="animate-on-scroll">
           
           <div className="flex items-center justify-center gap-2 mb-4">
@@ -47,8 +47,8 @@ export function SocialProofSection() {
                 <Star key={i} className="w-5 h-5 fill-[#F5A623] text-[#F5A623]" />
               ))}
             </div>
-            <span className="text-[#1C1C1E] font-medium text-sm ml-2">
-              <span className="font-bold text-[#1A7A4A]">Google</span> Reviews
+            <span className="text-[#1C1C1E] font-bold text-sm ml-2 font-heading tracking-wide">
+              <span className="text-[#1A7A4A]">GOOGLE</span> REVIEWS
             </span>
           </div>
 
@@ -59,27 +59,31 @@ export function SocialProofSection() {
       </div>
 
       {/* Infinite Auto-scrolling Marquee */}
-      <div className="relative w-[100vw] left-1/2 right-1/2 -mx-[50vw] overflow-hidden -mt-4 py-8 pointer-events-auto">
-        <div className="animate-marquee gap-6 items-stretch">
+      <div className="relative w-[100vw] left-1/2 right-1/2 -mx-[50vw] overflow-hidden -mt-4 py-10 pointer-events-auto">
+        {/* Soft edge blur masks for the marquee */}
+        <div className="absolute top-0 left-0 bottom-0 w-[5vw] sm:w-[15vw] bg-gradient-to-r from-[#F8F8F6] to-transparent z-10 pointer-events-none" />
+        <div className="absolute top-0 right-0 bottom-0 w-[5vw] sm:w-[15vw] bg-gradient-to-l from-[#F8F8F6] to-transparent z-10 pointer-events-none" />
+        
+        <div className="animate-marquee gap-6 items-stretch pl-[15vw]">
           {testimonials.map((t, index) => (
             <div
               key={index}
-              className="shrink-0 w-[85vw] sm:w-[350px] md:w-[400px] bg-white rounded-xl p-6 md:p-8 border border-[#E5E5E0] shadow-sm flex flex-col hover:-translate-y-1 transition-transform"
+              className="shrink-0 w-[85vw] sm:w-[350px] md:w-[420px] bg-white rounded-2xl p-8 border border-[#E5E5E0] shadow-sm flex flex-col transition-all duration-300 hover:shadow-xl hover:-translate-y-2 cursor-default group"
             >
-              <div className="inline-block bg-[#E8F5EE] text-[#1A7A4A] px-3 py-1.5 rounded-lg text-sm font-bold mb-5 self-start">
+              <div className="inline-block bg-[#E8F5EE] text-[#1A7A4A] px-4 py-2 rounded-xl text-sm font-bold mb-6 self-start group-hover:bg-[#1A7A4A] group-hover:text-white transition-colors">
                 {t.stat}
               </div>
 
-              <div className="mb-2">
-                <Quote className="w-6 h-6 text-[#1A7A4A] opacity-20" />
+              <div className="mb-4">
+                <Quote className="w-8 h-8 text-[#1A7A4A] opacity-10 group-hover:opacity-20 transition-opacity" />
               </div>
 
-              <p className="text-[15px] md:text-[16px] text-[#4B5563] leading-relaxed mb-6 italic flex-1">
-                &ldquo;{t.quote}&rdquo;
+              <p className="text-[16px] text-[#4B5563] leading-relaxed mb-8 font-medium flex-1">
+                "{t.quote}"
               </p>
 
-              <div className="pt-5 border-t border-[#E5E5E0]">
-                <p className="text-[14px] font-bold text-[#1C1C1E] font-heading">
+              <div className="pt-6 border-t border-[#E5E5E0]">
+                <p className="text-[15px] font-bold text-[#1C1C1E] font-heading">
                   {t.author}
                 </p>
               </div>
@@ -88,15 +92,15 @@ export function SocialProofSection() {
         </div>
       </div>
 
-      <div className="animate-on-scroll text-center flex justify-center mt-6">
+      <div className="animate-on-scroll text-center flex justify-center mt-8 relative z-10">
         <a
           href={getWhatsAppLink()}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex justify-center items-center gap-2 bg-[#1A7A4A] hover:bg-[#145e39] text-white py-3.5 px-8 rounded-lg font-medium transition-colors"
+          className="inline-flex justify-center items-center gap-2 bg-[#1A7A4A] hover:bg-[#15603A] text-white py-4 px-8 rounded-xl font-bold transition-all hover:scale-105 active:scale-95 shadow-[0_4px_20px_-4px_rgba(26,122,74,0.4)]"
         >
           Chat on WhatsApp
-          <ArrowRight className="w-4 h-4" />
+          <ArrowRight className="w-5 h-5" />
         </a>
       </div>
     </SectionWrapper>

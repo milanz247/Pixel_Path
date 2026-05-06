@@ -62,7 +62,7 @@ export function PricingSection() {
   };
 
   return (
-    <SectionWrapper background="white" id="pricing" divider>
+    <SectionWrapper background="white" id="pricing" divider={false}>
       <div className="text-center mb-12 md:mb-16">
         <div className="animate-on-scroll">
           <h2 className="text-[32px] md:text-[36px] font-bold text-[#1C1C1E] mb-4 font-heading leading-tight">
@@ -81,16 +81,16 @@ export function PricingSection() {
           return (
             <div
               key={index}
-              className={`animate-on-scroll relative rounded-xl border p-6 lg:p-8 flex flex-col ${
+              className={`animate-on-scroll relative rounded-2xl border p-6 lg:p-8 flex flex-col transition-all duration-300 ${
                 isDark
-                  ? "bg-[#1C1C1E] border-[#1C1C1E] text-white shadow-xl scale-100 md:scale-105 z-10"
-                  : "bg-white border-[#E5E5E0] text-[#1C1C1E] shadow-sm transform translate-y-0 md:translate-y-4"
+                  ? "bg-[#1C1C1E] border-[#1C1C1E] text-white shadow-[0_8px_30px_rgb(0,0,0,0.12)] scale-100 md:scale-105 z-10"
+                  : "bg-white border-[#E5E5E0] text-[#1C1C1E] shadow-sm hover:shadow-lg transform translate-y-0 md:translate-y-4"
               }`}
             >
               {isDark && (
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                  <span className="bg-[#1A7A4A] text-white text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full flex items-center gap-1 shadow-sm">
-                    <Star className="w-3 h-3 fill-white text-white" />
+                  <span className="bg-[#1A7A4A] text-white text-[11px] font-bold uppercase tracking-widest px-4 py-1.5 rounded-full flex items-center gap-1 shadow-md">
+                    <Star className="w-3 h-3 fill-[#F5A623] text-[#F5A623]" />
                     Most Popular
                   </span>
                 </div>
@@ -101,10 +101,10 @@ export function PricingSection() {
                 <p className={`text-[14px] leading-relaxed ${isDark ? "text-white/70" : "text-[#4B5563]"}`}>{pkg.description}</p>
               </div>
 
-              <div className="mb-6 pb-6 border-b border-opacity-20 border-[#E5E5E0]">
+              <div className={`mb-6 pb-6 border-b border-opacity-30 ${isDark ? "border-white/20" : "border-[#E5E5E0]"}`}>
                 <div className="flex items-baseline gap-1">
                   <span className={`text-sm font-semibold ${isDark ? "text-white/60" : "text-[#4B5563]"}`}>LKR</span>
-                  <span className={`text-[36px] font-bold tracking-tight font-heading ${isDark ? "text-white" : "text-[#1C1C1E]"}`}>{pkg.price}</span>
+                  <span className={`text-[36px] font-black tracking-tight font-heading ${isDark ? "text-white" : "text-[#1C1C1E]"}`}>{pkg.price}</span>
                   <span className={`text-sm font-medium ${isDark ? "text-white/60" : "text-[#4B5563]"}`}>/month</span>
                 </div>
               </div>
@@ -113,8 +113,8 @@ export function PricingSection() {
                 <ul className="space-y-4 mb-6">
                   {pkg.features.map((feature, fIndex) => (
                     <li key={fIndex} className="flex items-start gap-3">
-                      <Check className={`w-4 h-4 mt-0.5 flex-shrink-0 ${isDark ? "text-[#1A7A4A]" : "text-[#1A7A4A]"}`} />
-                      <span className={`text-[14px] leading-relaxed ${isDark ? "text-white/90" : "text-[#4B5563]"}`}>{feature}</span>
+                      <Check className={`w-4 h-4 mt-0.5 flex-shrink-0 ${isDark ? "text-[#20C969]" : "text-[#1A7A4A]"}`} />
+                      <span className={`text-[14px] leading-relaxed font-medium ${isDark ? "text-white/90" : "text-[#4B5563]"}`}>{feature}</span>
                     </li>
                   ))}
                 </ul>
@@ -124,15 +124,15 @@ export function PricingSection() {
               <div className="mt-auto pt-4">
                 <button
                   onClick={() => toggleAddon(index)}
-                  className={`flex items-center gap-2 text-[13px] font-medium transition-colors ${
-                    isDark ? "text-white/60 hover:text-white" : "text-[#4B5563] hover:text-[#1C1C1E]"
+                  className={`flex items-center gap-2 text-[13px] font-bold transition-colors ${
+                    isDark ? "text-white/60 hover:text-white" : "text-[#4B5563] hover:text-[#1A7A4A]"
                   }`}
                 >
                   <Plus className={`w-4 h-4 transition-transform ${openAddons === index ? "rotate-45" : ""}`} />
                   Add extras
                 </button>
                 {openAddons === index && (
-                  <div className={`mt-3 p-3 rounded-lg text-[13px] ${isDark ? "bg-white/5" : "bg-[#F8F8F6]"}`}>
+                  <div className={`mt-4 p-4 rounded-xl text-[13px] font-medium border ${isDark ? "bg-white/5 border-white/10" : "bg-[#F8F8F6] border-[#E5E5E0]"}`}>
                     <ul className="space-y-2">
                       {pkg.addons.map((addon, aIndex) => (
                         <li key={aIndex} className={isDark ? "text-white/80" : "text-[#4B5563]"}>• {addon}</li>
@@ -146,17 +146,17 @@ export function PricingSection() {
         })}
       </div>
 
-      <div className="animate-on-scroll text-center flex flex-col items-center justify-center pt-6">
+      <div className="animate-on-scroll text-center flex flex-col items-center justify-center pt-8">
         <a
           href={getWhatsAppLink()}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex justify-center items-center gap-2 bg-[#1A7A4A] hover:bg-[#145e39] text-white py-3.5 px-8 rounded-lg font-medium transition-colors"
+          className="inline-flex justify-center items-center gap-2 bg-[#1A7A4A] hover:bg-[#15603A] text-white py-4 px-8 rounded-xl font-bold transition-all hover:scale-105 active:scale-95 shadow-[0_4px_20px_-4px_rgba(26,122,74,0.4)]"
         >
           Chat on WhatsApp
-          <ArrowRight className="w-4 h-4" />
+          <ArrowRight className="w-5 h-5" />
         </a>
-        <p className="text-[13px] text-[#4B5563] mt-3">
+        <p className="text-[13px] font-medium text-[#4B5563] mt-4">
           Meta Ads budget is separate and paid directly to platforms.
         </p>
       </div>

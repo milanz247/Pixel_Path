@@ -54,7 +54,7 @@ You focus on treating patients. We handle the content, ads, posting, and optimiz
 
 export function FAQSection() {
   return (
-    <SectionWrapper background="offwhite" id="faq" divider>
+    <SectionWrapper background="offwhite" id="faq" divider={false}>
       <div className="animate-on-scroll text-center mb-10 md:mb-14">
         <h2 className="text-[32px] md:text-[36px] font-bold text-[#1C1C1E] mb-4 font-heading leading-tight">
           Frequently Asked Questions
@@ -67,12 +67,12 @@ export function FAQSection() {
             <AccordionItem
               key={index}
               value={`faq-${index}`}
-              className="bg-white border border-[#E5E5E0] rounded-xl px-5 overflow-hidden transition-all data-[state=open]:shadow-sm"
+              className="bg-white border border-[#E5E5E0] rounded-xl px-5 overflow-hidden transition-all duration-300 data-[state=open]:shadow-md data-[state=open]:border-[#1A7A4A]/20 faq-item"
             >
-              <AccordionTrigger className="text-left text-[15px] md:text-[16px] font-semibold text-[#1C1C1E] py-5 hover:no-underline [&[data-state=open]]:text-[#1A7A4A]">
+              <AccordionTrigger className="text-left text-[16px] md:text-[18px] font-bold text-[#1C1C1E] py-5 hover:no-underline [&[data-state=open]]:text-[#1A7A4A] font-heading">
                 {faq.question}
               </AccordionTrigger>
-              <AccordionContent className="text-[14px] md:text-[15px] text-[#4B5563] leading-relaxed pb-6 whitespace-pre-line">
+              <AccordionContent className="text-[15px] md:text-[16px] text-[#4B5563] leading-relaxed pb-6 whitespace-pre-line">
                 {faq.answer}
               </AccordionContent>
             </AccordionItem>
