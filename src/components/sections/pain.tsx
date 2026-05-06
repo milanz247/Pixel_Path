@@ -31,7 +31,7 @@ const painPoints = [
 
 export function PainSection() {
   return (
-    <SectionWrapper background="cream" id="pain" nextBackground="none">
+    <SectionWrapper background="cream" id="pain">
       <div className="text-center mb-8 md:mb-14">
         <div className="animate-on-scroll">
           <div className="premium-divider mx-auto mb-4 md:mb-6" />

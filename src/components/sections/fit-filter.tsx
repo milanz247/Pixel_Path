@@ -21,7 +21,7 @@ const notForList = [
 
 export function FitFilterSection() {
   return (
-    <SectionWrapper background="cream-dark" id="fit-filter">
+    <SectionWrapper background="charcoal" id="fit-filter">
       <div className="animate-on-scroll text-center mb-8 md:mb-16">
         <div className="premium-divider mx-auto mb-4 md:mb-6" />
         <h2 className="heading-lg mb-3 md:mb-5">Is This <span className="text-gold-gradient">Right for You?</span></h2>

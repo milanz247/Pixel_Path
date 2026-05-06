@@ -6,7 +6,7 @@ interface SectionWrapperProps {
   children: ReactNode;
   className?: string;
   id?: string;
-  background?: "white" | "offwhite" | "charcoal" | "navy" | "cream"; // Keeping legacy ones just in case temporarily
+  background?: "white" | "offwhite" | "charcoal" | "navy" | "cream" | "cream-dark"; // Added cream-dark
   divider?: boolean;
 }
 
@@ -16,6 +16,7 @@ const bgClassMap: Record<string, string> = {
   charcoal: "bg-[#0B1120] text-white",
   cream: "bg-[#FAF8F2]", // Map legacy cream to offwhite
   navy: "bg-[#0B1120]",  // Map legacy navy to charcoal
+  "cream-dark": "bg-[#F3EFE6]", // Slightly darker cream shade
 };
 
 export function SectionWrapper({
