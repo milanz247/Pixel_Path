@@ -50,18 +50,7 @@ const services = [
       "Lead funnels (awareness → inquiry)",
     ],
   },
-  {
-    icon: PenTool,
-    title: "Content Strategy",
-    features: [
-      "Monthly planning & themes",
-      "Educational content",
-      "Before-after showcases",
-      "Patient testimonials",
-      "Doctor credentials display",
-    ],
-  },
-  {
+   {
     icon: MessageSquare,
     title: "Clinic Lead Automation System",
     features: [
@@ -75,6 +64,18 @@ const services = [
       "Lead tagging and segmentation",
     ],
   },
+  {
+    icon: PenTool,
+    title: "Content Strategy",
+    features: [
+      "Monthly planning & themes",
+      "Educational content",
+      "Before-after showcases",
+      "Patient testimonials",
+      "Doctor credentials display",
+    ],
+  },
+ 
 ];
 
 export function ServicesSection() {
