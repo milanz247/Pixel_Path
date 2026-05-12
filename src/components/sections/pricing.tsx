@@ -8,7 +8,7 @@ import { useState } from "react";
 const packages = [
   {
     name: "Starter Growth",
-    price: "45,000",
+    price: "55,000",
     description: "Perfect for clinics just starting their digital presence.",
     features: [
       "8 Reels + 8 Posts",
@@ -23,7 +23,7 @@ const packages = [
   },
   {
     name: "Growth Plus",
-    price: "55,000",
+    price: "75,000",
     description: "A balanced package for clinics that want consistent growth.",
     features: [
       "10 Reels + 12 Posts",
@@ -38,7 +38,7 @@ const packages = [
   },
   {
     name: "Premium Brand",
-    price: "65,000",
+    price: "80,000",
     description: "For clinics that want premium brand positioning & dominance.",
     features: [
       "12 Reels + 15 Posts",

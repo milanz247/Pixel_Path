@@ -44,7 +44,7 @@ export function HeroSection() {
             {/* Small label */}
             <div className="hero-stagger-1 mb-6">
               <span className="inline-flex items-center gap-2 text-[13px] font-bold uppercase tracking-[0.2em] py-1.5 px-4 rounded-full text-[#20C969] bg-[#1A7A4A]/10 border border-[#1A7A4A]/20 backdrop-blur-sm">
-                Sri Lanka's Premium Clinic Agency 🇱🇰
+                Sri Lanka's Premium Clinic Agency
               </span>
             </div>
 
