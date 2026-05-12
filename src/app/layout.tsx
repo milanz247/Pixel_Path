@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Outfit } from "next/font/google";
+import { GoogleTagManager } from "@next/third-parties/google";
 import "./globals.css";
 import { ScrollProgress } from "@/components/ui/scroll-progress";
 import { AnimationObserver } from "@/components/ui/animation-observer";
@@ -84,6 +85,8 @@ const jsonLd = {
   },
 };
 
+const gtmId = process.env.NEXT_PUBLIC_GTM_ID || "GTM-523VPDFJ";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -106,6 +109,16 @@ export default function RootLayout({
         />
       </head>
       <body className={`${outfit.variable} ${inter.variable} antialiased bg-cream min-h-screen flex flex-col overflow-x-hidden selection:bg-gold/20 selection:text-navy`}>
+        <GoogleTagManager gtmId={gtmId} />
+        <noscript>
+          <iframe
+            src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}
+            title="Google Tag Manager"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
         <ScrollProgress />
         <AnimationObserver />
         {children}

@@ -24,8 +24,8 @@ const stats = [
 export function ClinicAutomationSection() {
   return (
     <SectionWrapper background="cream-dark" id="clinic-lead-automation" divider={false}>
-      <div className="py-20 md:py-32">
-        <div className="max-w-5xl mx-auto px-4">
+      <div className="py-14 md:py-24 lg:py-32">
+        <div className="max-w-5xl mx-auto px-1 sm:px-3 md:px-4">
 
           {/* ── Header block ── */}
           <div className="animate-on-scroll">
@@ -34,18 +34,18 @@ export function ClinicAutomationSection() {
               Clinic Lead Automation System
             </div>
 
-            <h2 className="mt-6 text-[36px] md:text-[52px] lg:text-[58px] font-bold text-neutral-charcoal leading-[1.1] font-heading max-w-3xl tracking-tight">
+            <h2 className="mt-5 text-[30px] sm:text-[34px] md:text-[46px] lg:text-[58px] font-bold text-neutral-charcoal leading-[1.12] font-heading max-w-3xl tracking-tight">
               Stop losing patients{" "}
               <span className="relative inline-block">
                 <span className="relative z-10 text-[#1A7A4A]">in your inbox.</span>
                 <span
-                  className="absolute -bottom-1 left-0 right-0 h-[6px] rounded-full bg-[#1A7A4A]/15"
+                  className="absolute -bottom-1 left-0 right-0 h-1.5 rounded-full bg-[#1A7A4A]/15"
                   aria-hidden
                 />
               </span>
             </h2>
 
-            <p className="mt-5 text-[17px] md:text-[19px] leading-relaxed text-warm-gray max-w-2xl">
+            <p className="mt-4 text-[15px] sm:text-[16px] md:text-[18px] leading-relaxed text-warm-gray max-w-2xl">
               We build smart Messenger and WhatsApp automation systems that reply
               instantly, qualify patients, and guide them toward booking — so your
               team never has to chase a cold lead again.
@@ -53,11 +53,11 @@ export function ClinicAutomationSection() {
           </div>
 
           {/* ── Stat row ── */}
-          <div className="mt-10 flex flex-wrap gap-4 animate-on-scroll">
+          <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-3 animate-on-scroll">
             {stats.map(({ value, label }) => (
               <div
                 key={label}
-                className="flex items-center gap-3 rounded-2xl border border-[#1A7A4A]/15 bg-white px-5 py-3 shadow-sm"
+                className="flex items-center gap-3 rounded-2xl border border-[#1A7A4A]/15 bg-white px-4 py-3 shadow-sm"
               >
                 <span className="text-[22px] font-bold text-[#1A7A4A] leading-none font-heading">
                   {value}
@@ -68,7 +68,7 @@ export function ClinicAutomationSection() {
           </div>
 
           {/* ── Two-column body ── */}
-          <div className="mt-14 grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-10 items-start animate-on-scroll">
+          <div className="mt-10 md:mt-12 grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-7 md:gap-10 items-start animate-on-scroll">
 
             {/* Left — included items */}
             <div>
@@ -94,7 +94,7 @@ export function ClinicAutomationSection() {
 
             {/* Right — CTA card (upgraded) */}
             <div className="lg:sticky lg:top-8">
-              <div className="relative overflow-hidden rounded-3xl bg-[#1A7A4A] p-7 md:p-8 shadow-xl">
+              <div className="relative overflow-hidden rounded-3xl bg-[#1A7A4A] p-5 sm:p-6 md:p-8 shadow-xl">
 
                 {/* decorative circles */}
                 <span
@@ -110,11 +110,11 @@ export function ClinicAutomationSection() {
                   Ready to get started?
                 </p>
 
-                <h3 className="relative text-[22px] md:text-[24px] font-bold text-white leading-snug font-heading">
+                <h3 className="relative text-[20px] sm:text-[22px] md:text-[24px] font-bold text-white leading-snug font-heading">
                   Build your clinic automation system today.
                 </h3>
 
-                <p className="relative mt-3 text-[14px] text-white/75 leading-relaxed">
+                <p className="relative mt-3 text-[13px] sm:text-[14px] text-white/75 leading-relaxed">
                   Turn Facebook, Instagram, and WhatsApp inquiries into organized,
                   qualified appointments — automatically.
                 </p>
@@ -133,8 +133,12 @@ export function ClinicAutomationSection() {
                   ))}
                 </ul>
 
-                <div className="relative mt-7">
-                  <WhatsAppButton size="large" label="Build My Automation System" />
+                <div className="relative mt-6">
+                  <WhatsAppButton
+                    size="large"
+                    label="Build My Automation System"
+                    className="w-full justify-center"
+                  />
                 </div>
 
                 <p className="relative mt-3 text-center text-[11px] text-white/45">
