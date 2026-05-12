@@ -153,7 +153,7 @@ export function PricingSection() {
           rel="noopener noreferrer"
           className="inline-flex justify-center items-center gap-2 bg-[#1A7A4A] hover:bg-[#15603A] text-white py-4 px-8 rounded-xl font-bold transition-all hover:scale-105 active:scale-95 shadow-[0_4px_20px_-4px_rgba(26,122,74,0.4)]"
         >
-          Chat on WhatsApp
+          Start Your Growth Plan
           <ArrowRight className="w-5 h-5" />
         </a>
         <p className="text-[13px] font-medium text-[#4B5563] mt-4">

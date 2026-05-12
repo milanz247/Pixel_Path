@@ -31,38 +31,33 @@ const painPoints = [
 
 export function PainSection() {
   return (
-    <SectionWrapper background="cream" id="pain">
+    <SectionWrapper background="offwhite" id="pain" divider={false}>
       <div className="text-center mb-8 md:mb-14">
         <div className="animate-on-scroll">
-          <div className="premium-divider mx-auto mb-4 md:mb-6" />
-          <h2 className="heading-lg mb-3 md:mb-5">
+          <h2 className="text-[32px] md:text-[36px] font-bold text-[#1C1C1E] mb-4 font-heading leading-tight">
             Is This Happening in{" "}
-            <span className="text-gold-gradient">Your Clinic</span> Right Now?
+            <span className="text-[#1A7A4A]">Your Clinic</span> Right Now?
           </h2>
         </div>
       </div>
 
-      {/* Problem table/grid */}
-      <div className="animate-on-scroll max-w-4xl mx-auto mb-6 md:mb-10">
+      <div className="max-w-4xl mx-auto mb-6 md:mb-10">
         <div className="space-y-3 md:space-y-4">
           {painPoints.map((point, index) => {
             const Icon = point.icon;
             return (
               <div
                 key={index}
-                className={`animate-on-scroll animate-on-scroll-delay-${Math.min(index + 1, 5)} pain-card bg-white rounded-xl md:rounded-2xl p-4 md:p-5 border border-light-border flex items-start gap-3 md:gap-5 group hover:shadow-md hover:border-red-100 transition-all cursor-default`}
+                className="animate-on-scroll bg-white rounded-xl md:rounded-2xl p-4 md:p-5 border border-[#E5E5E0] flex items-start gap-3 md:gap-5 group hover:shadow-md hover:border-red-200 transition-all duration-300 cursor-default"
               >
-                <div className="pain-icon w-10 h-10 md:w-12 md:h-12 rounded-lg md:rounded-xl bg-rose-soft flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg md:rounded-xl bg-red-50 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
                   <Icon className="w-5 h-5 md:w-6 md:h-6 text-red-400" />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <h3
-                    className="text-sm md:text-base font-semibold text-navy mb-1"
-                    style={{ fontFamily: "var(--font-outfit, 'Outfit', sans-serif)" }}
-                  >
+                  <h3 className="text-sm md:text-base font-semibold text-[#1C1C1E] mb-1 font-heading">
                     {point.problem}
                   </h3>
-                  <p className="text-xs md:text-sm text-warm-gray leading-relaxed">
+                  <p className="text-xs md:text-sm text-[#4B5563] leading-relaxed">
                     {point.result}
                   </p>
                 </div>
@@ -72,19 +67,14 @@ export function PainSection() {
         </div>
       </div>
 
-      {/* Result summary */}
       <div className="animate-on-scroll max-w-2xl mx-auto">
-        <div className="bg-navy rounded-xl md:rounded-2xl p-4 md:p-6 text-center">
-          <p
-            className="text-sm md:text-lg font-semibold text-white"
-            style={{ fontFamily: "var(--font-outfit, 'Outfit', sans-serif)" }}
-          >
+        <div className="bg-[#1C1C1E] rounded-xl md:rounded-2xl p-4 md:p-6 text-center">
+          <p className="text-sm md:text-lg font-semibold text-white font-heading">
             Random posts + Weak presence ={" "}
-            <span className="text-gold-light">fewer inquiries, wrong type of patients</span>
+            <span className="text-[#20C969]">fewer inquiries, wrong type of patients</span>
           </p>
         </div>
       </div>
     </SectionWrapper>
   );
 }
-             

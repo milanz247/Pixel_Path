@@ -33,7 +33,7 @@ export function HeroSection() {
                 <div className="h-2 bg-white/10 rounded-full w-full overflow-hidden">
                   <div className="w-[85%] h-full bg-[#20C969] rounded-full shadow-[0_0_10px_#20C969]" />
                 </div>
-                <div className="text-xs text-white/50 text-right">in 90 days</div>
+                <div className="text-xs text-white/50 text-right">in 30 days</div>
               </div>
             </div>
           </div>
@@ -49,7 +49,7 @@ export function HeroSection() {
             </div>
 
             {/* Headline */}
-            <h1 className="hero-stagger-2 mb-6 text-[42px] sm:text-[48px] md:text-[56px] font-bold text-white leading-[1.05] tracking-tight font-heading">
+            <h1 className="hero-stagger-2 mb-6 text-[32px] sm:text-[42px] md:text-[56px] font-bold text-white leading-[1.05] tracking-tight font-heading">
               Turn Your Clinic's Social Media Into A <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#20C969] to-[#1A7A4A]">Patient Inquiry System.</span>
             </h1>
 
@@ -67,7 +67,7 @@ export function HeroSection() {
                 className="w-full sm:w-auto inline-flex justify-center items-center gap-2 bg-[#1A7A4A] hover:bg-[#15603A] text-white py-4 px-8 rounded-xl font-bold transition-all hover:scale-105 active:scale-95 shadow-[0_0_40px_-10px_#1A7A4A]"
                 id="hero-cta-button"
               >
-                Chat on WhatsApp
+                Get Your Free Audit
                 <ArrowRight className="w-5 h-5" />
               </a>
               

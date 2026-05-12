@@ -157,15 +157,15 @@ export function Navbar() {
         </div>
       </div>
 
-      {/* Floating Back to top button */}
+      {/* Floating Back to top button — positioned bottom-left to avoid WhatsApp FAB overlap */}
       <div 
-        className={`fixed bottom-8 right-8 z-40 transition-all duration-500 ${
+        className={`fixed bottom-6 left-6 z-40 transition-all duration-500 ${
           scrolled ? 'opacity-100 translate-y-0 shadow-2xl' : 'opacity-0 translate-y-12 pointer-events-none'
         }`}
       >
         <button
           onClick={scrollToTop}
-          className="w-12 h-12 rounded-full bg-white text-[#1C1C1E] border border-[#E5E5E0] flex items-center justify-center shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:scale-110 hover:border-[#1A7A4A] hover:text-[#1A7A4A] transition-all duration-300 focus:outline-none"
+          className="w-11 h-11 rounded-full bg-white text-[#1C1C1E] border border-[#E5E5E0] flex items-center justify-center shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:scale-110 hover:border-[#1A7A4A] hover:text-[#1A7A4A] transition-all duration-300 focus:outline-none"
           aria-label="Back to top"
         >
           <ArrowUp className="w-5 h-5" />

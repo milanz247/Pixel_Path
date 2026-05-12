@@ -1,5 +1,4 @@
-/* Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
+/* Fonts loaded via next/font/google in layout.tsx */
 
 @import "tailwindcss";
 @import "tw-animate-css";
@@ -236,9 +235,7 @@
   border-color: #E5E7EB;
 }
 
-.gold-gradient {
-  background: linear-gradient(135deg, #D4A853 0%, #E8C97A 50%, #D4A853 100%);
-}
+/* gold-gradient moved to animated version below */
 
 .text-gold-gradient {
   background: linear-gradient(135deg, #D4A853, #B8923F);
@@ -449,7 +446,7 @@
   top: 0;
   left: 0;
   height: 3px;
-  background: linear-gradient(90deg, #D4A853, #E8C97A);
+  background: linear-gradient(90deg, #1A7A4A, #20C969);
   z-index: 100;
   transition: width 0.1s linear;
 }
@@ -510,11 +507,7 @@
   100% { box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3); }
 }
 
-.whatsapp-btn:hover {
-  background: #20BD5A;
-  animation: whatsapp-pulse 1.5s ease-in-out infinite;
-  transform: translateY(-2px);
-}
+/* duplicate whatsapp-btn:hover removed — see line 279 */
 
 /* Icon wiggle on parent hover */
 .icon-wiggle {
@@ -666,9 +659,7 @@
   100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
 }
 
-.sticky-whatsapp {
-  animation: wa-ring 2.5s ease-out infinite, pulse-glow 3s infinite;
-}
+/* duplicate sticky-whatsapp removed — see line 289 */
 
 /* Nav link hover underline */
 .nav-link-animate {

@@ -43,12 +43,21 @@ export const metadata: Metadata = {
     locale: "en_US",
     siteName: "Pixel Path",
     url: "https://pixelpath.lk",
+    images: [
+      {
+        url: "https://pixelpath.lk/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Pixel Path — Get More Patient Inquiries for Your Clinic",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Pixel Path | Get More Patient Inquiries for Your Clinic",
     description:
       "We help dental, skin, and aesthetic clinics in Sri Lanka get more patient inquiries through better social media, ads, content, and simple marketing systems.",
+    images: ["https://pixelpath.lk/og-image.png"],
   },
   robots: {
     index: true,
@@ -107,8 +116,38 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        {/* ── Meta Pixel Code — installed once, do NOT duplicate in GTM ── */}
+        <script
+          id="meta-pixel"
+          dangerouslySetInnerHTML={{
+            __html: `
+              !function(f,b,e,v,n,t,s)
+              {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+              n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+              if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+              n.queue=[];t=b.createElement(e);t.async=!0;
+              t.src=v;s=b.getElementsByTagName(e)[0];
+              s.parentNode.insertBefore(t,s)}(window, document,'script',
+              'https://connect.facebook.net/en_US/fbevents.js');
+              fbq('init', '1536621594644719');
+              fbq('track', 'PageView');
+            `,
+          }}
+        />
+        <noscript>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            height="1"
+            width="1"
+            style={{ display: "none" }}
+            src="https://www.facebook.com/tr?id=1536621594644719&ev=PageView&noscript=1"
+            alt=""
+          />
+        </noscript>
+        {/* ── End Meta Pixel Code ── */}
       </head>
       <body className={`${outfit.variable} ${inter.variable} antialiased bg-cream min-h-screen flex flex-col overflow-x-hidden selection:bg-gold/20 selection:text-navy`}>
+        {/* ── Google Tag Manager (already configured via @next/third-parties) ── */}
         <GoogleTagManager gtmId={gtmId} />
         <noscript>
           <iframe
@@ -119,6 +158,8 @@ export default function RootLayout({
             style={{ display: "none", visibility: "hidden" }}
           />
         </noscript>
+
+
         <ScrollProgress />
         <AnimationObserver />
         {children}
