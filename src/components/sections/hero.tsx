@@ -26,7 +26,7 @@ export function HeroSection() {
                 </div>
                 <div>
                   <div className="text-sm text-white/60 font-medium">Average Client Result</div>
-                  <div className="text-2xl font-bold text-white">127+ Inquiries</div>
+                  <div className="text-2xl font-bold text-white">94 Qualified Patient Leads</div>
                 </div>
               </div>
               <div className="space-y-3">
@@ -130,8 +130,8 @@ export function HeroSection() {
                 </div>
                 <div>
                   <div className="text-sm text-white/60 font-medium">Verified Results</div>
-                  <div className="text-[32px] font-black text-transparent bg-clip-text bg-gradient-to-r from-[#20C969] to-white leading-tight">127 Inquiries</div>
-                  <div className="text-xs text-[#20C969] font-medium tracking-wide">GENERATED IN 90 DAYS</div>
+                  <div className="text-[32px] font-black text-transparent bg-clip-text bg-gradient-to-r from-[#20C969] to-white leading-tight">94 Qualified Patient Leads</div>
+                  <div className="text-xs text-[#20C969] font-medium tracking-wide">GENERATED IN 30 DAYS</div>
                 </div>
               </div>
 

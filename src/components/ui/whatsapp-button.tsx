@@ -7,7 +7,7 @@ interface WhatsAppButtonProps {
   label?: string;
 }
 
-const WHATSAPP_NUMBER = "94XXXXXXXXXX"; // Replace with actual number
+const WHATSAPP_NUMBER = "971589476952";
 const WHATSAPP_MESSAGE = encodeURIComponent(
   "Hi Pixel Path. I run a [dental / skin / aesthetic] clinic in [area]. I want more patient inquiries for my clinic. Can you review my current page and tell me what is possible?"
 );
@@ -21,7 +21,7 @@ export function WhatsAppButton({
   size = "default",
   showIcon = true,
   label = "Send a WhatsApp Message",
-}: WhatsAppButtonProps) {
+}: Readonly<WhatsAppButtonProps>) {
   const sizeClasses =
     size === "large"
       ? "py-4 px-8 text-lg rounded-2xl"

@@ -2,7 +2,7 @@ import { SectionWrapper } from "@/components/ui/section-wrapper";
 
 export function SolutionSection() {
   return (
-    <SectionWrapper background="cream-dark" id="solution">
+    <SectionWrapper background="cream" id="solution">
       <div className="max-w-3xl mx-auto text-center">
         <div className="animate-on-scroll">
           <div className="premium-divider mx-auto mb-4 md:mb-6" />

@@ -1,8 +1,8 @@
 import { Navbar } from "@/components/sections/navbar";
 import { HeroSection } from "@/components/sections/hero";
-import { PainSection } from "@/components/sections/pain";
 import { ServicesSection } from "@/components/sections/services";
 import { PricingSection } from "@/components/sections/pricing";
+import { ClinicAutomationSection } from "@/components/sections/clinic-automation";
 import { SocialProofSection } from "@/components/sections/social-proof";
 import { HowItWorksSection } from "@/components/sections/how-it-works";
 import { RiskReversalSection } from "@/components/sections/risk-reversal";
@@ -18,6 +18,7 @@ export default function Home() {
       {/* <PainSection /> */}
       <ServicesSection />
       <PricingSection />
+      <ClinicAutomationSection />
       <SocialProofSection />
       <HowItWorksSection />
       <RiskReversalSection />

@@ -5,7 +5,7 @@ import {
   Target,
   Search,
   FileText,
-  BarChart3,
+  MessageSquare,
   Check,
 } from "lucide-react";
 
@@ -62,13 +62,17 @@ const services = [
     ],
   },
   {
-    icon: BarChart3,
-    title: "Performance Tracking",
+    icon: MessageSquare,
+    title: "Clinic Lead Automation System",
     features: [
-      "Monthly reports with metrics",
-      "Inquiry source tracking",
-      "ROI analysis",
-      "Monthly optimization",
+      "AI Chatbot & WhatsApp Lead Automation for Clinics",
+      "Facebook Messenger automation",
+      "WhatsApp lead flow setup",
+      "FAQ auto-replies",
+      "Treatment inquiry qualification",
+      "Appointment booking flow",
+      "Follow-up message sequence",
+      "Lead tagging and segmentation",
     ],
   },
 ];
@@ -83,17 +87,17 @@ export function ServicesSection() {
           </h2>
           <p className="text-base text-[#4B5563] max-w-2xl mx-auto">
             You treat patients. We manage your entire marketing system — content,
-            ads, landing pages, and performance tracking.
+            ads, landing pages, and lead automation.
           </p>
         </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10 md:mb-12">
-        {services.map((service, index) => {
+        {services.map((service) => {
           const Icon = service.icon;
           return (
             <div
-              key={index}
+              key={service.title}
               className="animate-on-scroll bg-white rounded-2xl p-6 md:p-8 border border-[#E5E5E0] shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 h-full flex flex-col"
             >
               <div className="flex items-center gap-4 mb-6">
@@ -105,8 +109,8 @@ export function ServicesSection() {
                 </h3>
               </div>
               <div className="space-y-3.5 flex-1">
-                {service.features.map((feature, fIndex) => (
-                  <div key={fIndex} className="flex items-start gap-3 group">
+                {service.features.map((feature) => (
+                  <div key={feature} className="flex items-start gap-3 group">
                     <Check
                       className="w-4 h-4 text-[#1A7A4A] mt-1 flex-shrink-0 group-hover:scale-110 transition-transform"
                     />
