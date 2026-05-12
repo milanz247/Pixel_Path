@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Outfit } from "next/font/google";
-import { GoogleTagManager } from "@next/third-parties/google";
+
 import "./globals.css";
 import { ScrollProgress } from "@/components/ui/scroll-progress";
 import { AnimationObserver } from "@/components/ui/animation-observer";
@@ -94,7 +94,7 @@ const jsonLd = {
   },
 };
 
-const gtmId = process.env.NEXT_PUBLIC_GTM_ID || "GTM-523VPDFJ";
+
 
 export default function RootLayout({
   children,
@@ -108,6 +108,18 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
+        {/* ── Google Tag Manager — as high in <head> as possible ── */}
+        <script
+          id="gtm-head"
+          dangerouslySetInnerHTML={{
+            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-523VPDFJ');`,
+          }}
+        />
+        {/* ── End Google Tag Manager ── */}
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/icon.svg" type="image/svg+xml" />
         <meta name="theme-color" content="#0F172A" />
@@ -147,17 +159,17 @@ export default function RootLayout({
         {/* ── End Meta Pixel Code ── */}
       </head>
       <body className={`${outfit.variable} ${inter.variable} antialiased bg-cream min-h-screen flex flex-col overflow-x-hidden selection:bg-gold/20 selection:text-navy`}>
-        {/* ── Google Tag Manager (already configured via @next/third-parties) ── */}
-        <GoogleTagManager gtmId={gtmId} />
+        {/* ── Google Tag Manager (noscript) — immediately after <body> ── */}
         <noscript>
           <iframe
-            src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}
+            src="https://www.googletagmanager.com/ns.html?id=GTM-523VPDFJ"
             title="Google Tag Manager"
             height="0"
             width="0"
             style={{ display: "none", visibility: "hidden" }}
           />
         </noscript>
+        {/* ── End Google Tag Manager (noscript) ── */}
 
 
         <ScrollProgress />
