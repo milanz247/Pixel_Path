@@ -1,5 +1,3 @@
-"use client";
-
 import { MessageCircle, Check, ArrowRight, TrendingUp } from "lucide-react";
 import { getWhatsAppLink } from "@/components/ui/whatsapp-button";
 

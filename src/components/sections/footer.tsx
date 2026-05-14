@@ -4,7 +4,7 @@ import { getWhatsAppLink } from "@/components/ui/whatsapp-button";
 const quickLinks = [
   { label: "Our Services", href: "#services" },
   { label: "Packages", href: "#pricing" },
-  { label: "How We Work", href: "#how-it-works" },
+  { label: "Results", href: "#social-proof" },
   { label: "FAQ", href: "#faq" },
 ];
 
@@ -84,7 +84,7 @@ export function Footer() {
               </li>
               <li className="flex items-start gap-3">
                 <Mail className="w-4 h-4 text-[#1A7A4A] mt-0.5 flex-shrink-0" />
-                <a href="mailto:hello@pixelpath.lk" className="text-[14px] text-white/60 hover:text-[#20C969] transition-colors">hello@pixelpath.lk</a>
+                <a href="mailto:hello@pixelpathofficial.com" className="text-[14px] text-white/60 hover:text-[#20C969] transition-colors">hello@pixelpathofficial.com</a>
               </li>
               <li className="flex items-start gap-3">
                 <Clock className="w-4 h-4 text-[#1A7A4A] mt-0.5 flex-shrink-0" />
@@ -94,16 +94,24 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Divider */}
-        <div className="border-t border-white/10 pt-6 md:pt-8">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
-            <p className="text-[13px] text-white/40">
-              © {new Date().getFullYear()} Pixel Path. Engineered for Clinic Growth.
-            </p>
-            <p className="text-[13px] font-medium text-white/60">
-              Proudly designed in Sri Lanka 🇱🇰
-            </p>
-          </div>
+      </div>
+
+      {/* Bottom Footer Bar */}
+      <div className="border-t border-white/5 mt-4 md:mt-8">
+        <div className="mx-auto max-w-[1140px] px-5 sm:px-8 py-6 md:py-8 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+          <p className="text-[13px] text-white/40">
+            © {new Date().getFullYear()} Pixel Path. All rights reserved. <span className="hidden md:inline">·</span><br className="md:hidden" /> <a href="#" className="hover:text-white/60 transition-colors">Privacy Policy</a>
+          </p>
+          
+          <a href="tel:0777392706" className="flex items-center gap-3 group">
+            <div className="text-right">
+              <p className="text-[10px] text-white/40 uppercase tracking-widest mb-0.5 group-hover:text-white/60 transition-colors">Designed & Developed by</p>
+              <p className="text-[13px] font-medium text-white/70 group-hover:text-[#20C969] transition-colors">
+                Milan Madusanka
+              </p>
+            </div>
+      
+          </a>
         </div>
       </div>
     </footer>

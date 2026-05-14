@@ -1,5 +1,3 @@
-"use client";
-
 import { SectionWrapper } from "@/components/ui/section-wrapper";
 import { getWhatsAppLink } from "@/components/ui/whatsapp-button";
 import { Star, ArrowRight, Quote } from "lucide-react";

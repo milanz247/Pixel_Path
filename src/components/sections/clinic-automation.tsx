@@ -1,5 +1,3 @@
-"use client";
-
 import { SectionWrapper } from "@/components/ui/section-wrapper";
 import { WhatsAppButton } from "@/components/ui/whatsapp-button";
 import { Check, Bot, MessageCircle, Zap, Users, Calendar } from "lucide-react";
